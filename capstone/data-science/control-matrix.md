@@ -1,0 +1,28 @@
+# Control Matrix
+
+This matrix expands the kickoff controls for the Harborlight staffing analysis. It covers data quality, privacy, reproducibility, repository review, environment evidence, and later statistical transparency.
+
+| ID | Control | Type | Objective | Kickoff implementation | Evidence | Owner | Status |
+|---|---|---|---|---|---|---|---|
+| DS-01 | Synthetic data only | Preventive | Protect customer privacy and meet compliance limits | Generator writes synthetic rows only and marks every row synthetic | data/generated_incidents.csv and DATA.md | Data analyst | Implemented |
+| DS-02 | No personal data in shared outputs | Preventive | Prevent disclosure of names or personal data | Titles and descriptions use generic operational language with no customer names or emails | generated_incidents.csv review and collect_evidence.py check | Data analyst | Implemented |
+| DS-03 | Fixed random seed | Preventive | Make the dataset reproducible | Generator uses seed 4031 and writes the same dataset on rerun | scripts/generate_data.py and data_quality.csv | Data analyst | Implemented |
+| DS-04 | Dataset size and date coverage gate | Detective | Prove criterion 1 before analysis | Data quality check requires at least 10000 rows and at least 90 days | output/data_quality.csv | Data analyst | Implemented |
+| DS-05 | Category completeness gate | Detective | Prevent uncategorized incidents from weakening staffing findings | Data quality check requires zero blank categories | output/data_quality.csv | Data analyst | Implemented |
+| DS-06 | Closed incident resolution completeness gate | Detective | Prevent missing resolution times from biasing medians and percentiles | Data quality check requires every closed row to have resolved_at | output/data_quality.csv | Data analyst | Implemented |
+| DS-07 | Category taxonomy control | Preventive | Keep categories meaningful for Dana and Priya | Six logistics categories are defined in DATA.md with category specific titles and resolution patterns | DATA.md and scripts/generate_data.py | Data analyst | Implemented |
+| DS-08 | Resolution time interpretation control | Preventive | Avoid treating elapsed resolution time as agent handling time | DATA.md states the limit and Week 13 report must state handling time assumptions separately | DATA.md and risk-register.md | Data analyst | Implemented |
+| DS-09 | Read only data extraction | Preventive | Protect the source database during analysis | Kickoff analysis uses generated CSV data and documents database export as read only when used later | DATA.md and collect_evidence.py | System admin | Implemented |
+| DS-10 | Secrets excluded from repository | Preventive | Prevent credential leakage through GitHub | No passwords tokens or connection strings are stored in scripts or docs | collect_evidence.py secret pattern check | System admin | Implemented |
+| DS-11 | Branch and pull request review | Preventive | Keep changes reviewable and reversible | Work is prepared on week11-kickoff for pull request review before merge | Git branch and pull request text | Project owner | Implemented |
+| DS-12 | Dependency pinning | Preventive | Make tool setup repeatable | Python packages are recorded in requirements.txt from pip freeze | requirements.txt | System admin | Implemented |
+| DS-13 | Tool version recording | Detective | Show which tool versions produced the evidence | TOOL-VERSIONS.txt records Python package and system tool versions | TOOL-VERSIONS.txt | System admin | Implemented |
+| DS-14 | Repeatable evidence collection | Detective | Let a reviewer verify controls and outputs from one command | collect_evidence.py checks files counts controls risks and data gates | evidence/checks.csv and evidence/evidence-index.md | QA | Implemented |
+| DS-15 | Environment checkpoint | Detective | Save a working state to return to | environment_checkpoint.sh records OS Git tool and optional cluster checks | evidence/environment-checkpoint.txt | System admin | Implemented |
+| DS-16 | Backup before bulk database load | Preventive | Protect the VM database if generated rows are loaded later | DATA.md and runbook notes require backup before any bulk load into tickets | DATA.md and evidence index | System admin | Planned |
+| DS-17 | Resource limit control | Preventive | Keep analysis within the single server budget | Analysis runs on the host from the venv and exits without always on services | TOOL-VERSIONS.txt and environment checkpoint | System admin | Implemented |
+| DS-18 | Statistical transparency | Detective | Prevent chart only conclusions | Week 12 statistical check must save the numeric result and a plain English interpretation | QA test cases and Week 12 plan | Data analyst | Planned |
+| DS-19 | Prometheus range disclosure | Detective | Prevent overclaiming from short metrics history | Any Prometheus comparison must state the covered time range before use in findings | risk-register.md and QA test cases | Data analyst | Planned |
+| DS-20 | QA test case traceability | Detective | Tie each success criterion to a test and evidence file | docs/qa-report-final.md drafts Week 11 test cases before Week 12 build work | docs/qa-report-final.md | QA | Implemented |
+
+Total controls listed here is 20. The Week 11 requirement is at least 15 controls.
