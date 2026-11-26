@@ -1,0 +1,32 @@
+check,status,detail,evidence
+file exists README.md,PASS,present,README.md
+file exists capstone/data-science/DATA.md,PASS,present,capstone/data-science/DATA.md
+file exists capstone/data-science/control-matrix.md,PASS,present,capstone/data-science/control-matrix.md
+file exists capstone/data-science/control-matrix.csv,PASS,present,capstone/data-science/control-matrix.csv
+file exists capstone/data-science/risk-register.md,PASS,present,capstone/data-science/risk-register.md
+file exists capstone/data-science/risk-register.csv,PASS,present,capstone/data-science/risk-register.csv
+file exists capstone/data-science/scripts/generate_data.py,PASS,present,capstone/data-science/scripts/generate_data.py
+file exists capstone/data-science/scripts/collect_evidence.py,PASS,present,capstone/data-science/scripts/collect_evidence.py
+file exists capstone/data-science/scripts/environment_checkpoint.sh,PASS,present,capstone/data-science/scripts/environment_checkpoint.sh
+file exists capstone/data-science/data/generated_incidents.csv,PASS,present,capstone/data-science/data/generated_incidents.csv
+file exists capstone/data-science/output/data_quality.csv,PASS,present,capstone/data-science/output/data_quality.csv
+file exists capstone/data-science/TOOL-VERSIONS.txt,PASS,present,capstone/data-science/TOOL-VERSIONS.txt
+file exists capstone/data-science/requirements.txt,PASS,present,capstone/data-science/requirements.txt
+file exists docs/qa-report-final.md,PASS,present,docs/qa-report-final.md
+kickoff branch,PASS,week11-kickoff,git branch --show-current
+dataset row count,PASS,12000 rows,data/generated_incidents.csv
+dataset date coverage,PASS,181 days,data/generated_incidents.csv
+category completeness,PASS,0 null categories,output/data_quality.csv
+closed resolution completeness,PASS,0 closed rows missing resolved_at,output/data_quality.csv
+synthetic marker,PASS,all rows marked synthetic,data/generated_incidents.csv
+data quality gates,PASS,15 of 15 checks pass,output/data_quality.csv
+control matrix count,PASS,20 controls,control-matrix.csv
+risk register remediation,PASS,14 risks with after scores below before scores,risk-register.csv
+secret pattern scan,PASS,no secret patterns found,repository text files
+tool available python3,PASS,/usr/bin/python3,environment checkpoint
+tool available git,PASS,/usr/bin/git,environment checkpoint
+tool available jq,PASS,/usr/bin/jq,environment checkpoint
+tool available kubectl,UNAVAILABLE,not found in this environment,environment checkpoint
+tool available psql,UNAVAILABLE,not found in this environment,environment checkpoint
+tool available duckdb,UNAVAILABLE,not found in this environment,environment checkpoint
+tool available docker,UNAVAILABLE,not found in this environment,environment checkpoint

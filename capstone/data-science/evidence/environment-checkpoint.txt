@@ -1,0 +1,31 @@
+Environment checkpoint
+Generated UTC: 2026-11-26T03:17:28Z
+Hostname: htch-runtime
+OS: Linux htch-runtime 7.0.0-44-generic #1 SMP PREEMPT_DYNAMIC Fri Nov  6 01:23:31 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+Repository: /home/hatch/workspace/inet4031-week11-kickoff
+Git branch: week11-kickoff
+Git status:
+ M capstone/data-science/evidence/environment-checkpoint.txt
+
+Python:
+Python 3.12.3
+pandas 3.1.1
+matplotlib 3.11.2
+scipy 1.18.1
+csvstat 2.2.0
+
+System tools:
+git: /usr/bin/git
+git version 2.43.0
+jq: /usr/bin/jq
+jq-1.7
+psql: not found in this environment
+duckdb: not found in this environment
+kubectl: not found in this environment
+docker: not found in this environment
+
+Cluster checks:
+kubectl not found. Run this checkpoint on the Ubuntu k3s VM for cluster evidence.
+
+Local health check:
+localhost:8080 health check unavailable in this environment
