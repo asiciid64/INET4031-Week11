@@ -1,0 +1,14 @@
+Tool versions used for Week 11 kickoff
+Generated UTC: 2026-11-26T03:16:39Z
+Python: Python 3.12.3
+pandas: 3.1.1
+matplotlib: 3.11.2
+scipy: 1.18.1
+csvkit: csvstat 2.2.0
+jq: jq-1.7
+git: git version 2.43.0
+psql: not found in this environment
+duckdb: not found in this environment
+kubectl: not found in this environment
+docker: not found in this environment
+Ubuntu install notes for the course VM are in the track README. psql is optional for the Local VM because sql.sh and kubectl exec reach the db pod. DuckDB CLI is a single binary install on Ubuntu.
