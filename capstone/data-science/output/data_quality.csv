@@ -1,0 +1,16 @@
+metric,value,expected,status
+row_count,12000,>=10000,PASS
+date_range_days,181,>=90,PASS
+min_created_at,2026-05-29T01:16:00+00:00,present,PASS
+max_created_at,2026-11-25T23:21:00+00:00,present,PASS
+category_null_count,0,0,PASS
+closed_rows,11388,>0,PASS
+closed_missing_resolved_at,0,0,PASS
+duplicate_incident_ids,0,0,PASS
+synthetic_rows,12000,12000,PASS
+category_count_dispatch app,2700,>0,PASS
+category_count_logins and access,1690,>0,PASS
+category_count_network,1528,>0,PASS
+category_count_printers and labels,2165,>0,PASS
+category_count_scanners and handhelds,2780,>0,PASS
+category_count_warehouse systems,1137,>0,PASS
